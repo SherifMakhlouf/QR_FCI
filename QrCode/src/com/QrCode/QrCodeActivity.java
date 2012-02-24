@@ -54,6 +54,22 @@ public class QrCodeActivity extends Activity {
 	    
     }
     
+    
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+    	// TODO Auto-generated method stub
+    	super.onRestoreInstanceState(savedInstanceState);
+    	contents = savedInstanceState.getString("contents");
+    }
+  
+    
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+    	// TODO Auto-generated method stub
+    	outState.putString("contents", contents);
+    	super.onSaveInstanceState(outState);
+    }
+    
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         if (requestCode == 0) {
             if (resultCode == RESULT_OK) {
@@ -68,6 +84,8 @@ public class QrCodeActivity extends Activity {
                 // Handle cancel
             }
         }
+        
+        
     }
     
    
